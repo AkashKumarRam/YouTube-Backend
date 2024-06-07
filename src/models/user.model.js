@@ -53,7 +53,7 @@ const userSchema = new mongoose.Schema(
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
   // Etar mane password database e password save hoar agei sei password take nebo ar setake encrypt kore database e save korabo
-  this.password = bcrypt.hash(this.password, 10);
+  this.password = await bcrypt.hash(this.password, 10);
   next();
 });
 
