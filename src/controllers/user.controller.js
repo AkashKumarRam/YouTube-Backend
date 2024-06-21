@@ -92,6 +92,10 @@ const registerUser = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, createdUser, "User registered Successfully"));
 });
 
+
+
+
+
 const loginUser = asyncHandler(async (req, res) => {
   // req.body se data le au
   const { email, username, password } = req.body;
@@ -148,6 +152,7 @@ const loginUser = asyncHandler(async (req, res) => {
       )
     );
 });
+
 
 const logoutUser = asyncHandler(async (req, res) => {
   await User.findByIdAndUpdate(
